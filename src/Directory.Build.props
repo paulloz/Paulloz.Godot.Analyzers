@@ -1,0 +1,10 @@
+<Project>
+
+  <PropertyGroup>
+    <PackageId>Paulloz.Godot.Analyzers</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Paul Joannon</Authors>
+    <Company>Paulloz</Company>
+  </PropertyGroup>
+
+</Project>

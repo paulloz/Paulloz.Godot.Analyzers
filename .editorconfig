@@ -5,6 +5,12 @@ root = true
 end_of_line = lf
 insert_final_newline = true
 
+[*.{xml,proj,csproj,props}]
+
+indent_style = space
+indent_size = 2
+tab_width = 2
+
 [*.cs]
 
 indent_style = space

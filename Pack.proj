@@ -1,0 +1,17 @@
+<Project>
+
+  <ItemGroup>
+    <SrcProject Include="src\*\*.csproj" />
+  </ItemGroup>
+
+  <Target Name="Pack">
+    <ItemGroup>
+      <BuildTargets Include="Restore;Pack" />
+    </ItemGroup>
+
+    <MSBuild Projects="@(SrcProject)"
+             Targets="%(BuildTargets.Identity)"
+             Properties="BuildTargets=%(BuildTargets.Identity)" />
+  </Target>
+
+</Project>
