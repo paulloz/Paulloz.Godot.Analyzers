@@ -12,22 +12,22 @@ namespace Paulloz.Godot.Analyzers
     public class ExportSuppressor : DiagnosticSuppressor
     {
         internal static readonly SuppressionDescriptor ReadonlyRule = new(
-            id: "GSP0004",
+            id: "GDSP0001",
             suppressedDiagnosticId: "IDE0044",
             justification: Strings.ReadonlySerializeFieldSuppressorJustification);
 
         internal static readonly SuppressionDescriptor UnusedRule = new(
-            id: "GSP0006",
+            id: "GDSP0002",
             suppressedDiagnosticId: "IDE0051",
             justification: Strings.UnusedSerializeFieldSuppressorJustification);
 
         internal static readonly SuppressionDescriptor UnusedFxCopRule = new(
-            id: "GSP0013",
+            id: "GDSP0003",
             suppressedDiagnosticId: "CA1823",
             justification: Strings.UnusedSerializeFieldSuppressorJustification);
 
         internal static readonly SuppressionDescriptor NeverAssignedRule = new(
-            id: "GSP0007",
+            id: "GDSP0004",
             suppressedDiagnosticId: "CS0649",
             justification: Strings.NeverAssignedSerializeFieldSuppressorJustification);
 
