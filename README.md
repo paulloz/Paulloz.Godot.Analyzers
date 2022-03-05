@@ -32,27 +32,24 @@ $> resgen Strings.resx /str:cs,Paulloz.Godot.Analyzers.Resources,,Strings.Design
 
 ## Usage
 
+Add the following item group to your `.csproj` file.
+```xml
+<ItemGroup>
+    <Analyzer Include=".\path\to\Paulloz.Godot.Analyzers.dll" />
+</ItemGroup>
+```
+
 ### Visual Studio Code
 
-* Set `omnisharp.enableRoslynAnalyzers` to `true`
-* Drop `Paulloz.Godot.Analyzers.dll` somewhere in your workspace
-* At the root of your workspace, create a file named `omnisharp.json` containing the following:
+Do not forget to configure `omnisharp.enableRoslynAnalyzers: true`.
+
+If you don't want to reference `Paulloz.Godot.Analyzers.dll` in your `csproj` file, you can specifically configure Omnisharp. Simply create a file named `omnisharp.json` at the root of your workspace. Its content should look like:
 
 ```json
 {
     "RoslynExtensionsOptions": {
         "EnableAnalyzersSupport": true,
-        "LocationPaths": [
-            "path/to/the/folder/containing/the/dll"
-        ]
+        "LocationPaths": [ "path/to/the/folder/containing/the/dll" ]
     }
 }
 ```
-
-* Restart OmniSharp
-* Enjoy :shipit:
-
-
-### Visual Studio
-
-Coming soon...
