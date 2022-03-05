@@ -1,0 +1,17 @@
+# Runs dotnet-format
+name: Coding style
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  coding-style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "::add-matcher::.github/matchers/dotnet-format.json"
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+      - run: dotnet tool restore
+      - run: dotnet tool run dotnet-format -- -v minimal -w -s error -a error --check ./src/Paulloz.Godot.Analyzers/
