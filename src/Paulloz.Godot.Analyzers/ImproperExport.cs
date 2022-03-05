@@ -47,9 +47,6 @@ namespace Paulloz.Godot.Analyzers
             if (!symbol.ContainingType.Extends(typeof(Object))) return;
             if (!symbol.GetAttributes().Any(a => a.AttributeClass.Matches(typeof(ExportAttribute)))) return;
 
-            // if (symbol is IFieldSymbol field && field.Type is IArrayTypeSymbol arr)
-            // context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), $"{arr.ElementType.ToDisplayString()}--{arr.ElementType.IsMarshallable()}"));
-
             if (!IsMarshallable(symbol, out string? typeName))
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), typeName));
         }

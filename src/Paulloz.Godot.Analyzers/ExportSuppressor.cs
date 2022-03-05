@@ -50,8 +50,8 @@ namespace Paulloz.Godot.Analyzers
 
         private void AnalyzeDiagnostic(Diagnostic diagnostic, SuppressionAnalysisContext context)
         {
-            if (context.GetSuppressibleNode<VariableDeclaratorSyntax>(diagnostic) is not VariableDeclaratorSyntax fieldDeclarationSyntax)
-                return;
+            var fieldDeclarationSyntax = context.GetSuppressibleNode<VariableDeclaratorSyntax>(diagnostic);
+            if (fieldDeclarationSyntax is null) return;
 
             SemanticModel model = context.GetSemanticModel(diagnostic.Location.SourceTree);
             if (model.GetDeclaredSymbol(fieldDeclarationSyntax) is not IFieldSymbol fieldSymbol)
